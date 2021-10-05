@@ -17,10 +17,10 @@ class orderItemFlavor (models.Model):
     order_Item_Flavor = models.ForeignKey(itemFlavor,on_delete=models.CASCADE)
 
 class orderItemSize (models.Model):
-    order_Item_Flavor = models.ForeignKey(sizeCounts,on_delete=models.CASCADE)
+    order_Item_Size = models.ForeignKey(sizeCounts,on_delete=models.CASCADE)
 
 class orderItemQuantity (models.Model):
-    order_Item_Quantity = models.IntegerField(default=0)
+    order_Item_Quantity = models.ForeignKey(sizeCounts,on_delete=models.CASCADE)
 
 class itemShipping (models.Model):
     order_Item_Shipping = models.CharField(max_length = 20)
