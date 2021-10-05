@@ -31,6 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'orderentry.apps.OrderentryConfig',
+    'home.apps.HomeConfig',
+    'shipmenttracking.apps.ShipmenttrackingConfig',
+    'ticketmanage.apps.TicketmanageConfig',
+    'inventory.apps.InventoryConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
