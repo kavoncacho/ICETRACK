@@ -6,12 +6,13 @@ class sizeCounts (models.Model):
     pint_Count = models.IntegerField(default=30)
     half_Gallon_Count = models.IntegerField(default=30)
     gallon_Count = models.IntegerField(default=30)
+    #size_Choice = models.CharField(max_length=100)
 
     def __int__(self):
         return self.sizeCounts
+        #return self.size_Choice
 
 class itemFlavor (models.Model):
-    #item_Flavor_Choices = [('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('STRAWBERRY', 'strawberry')]
     item_Flavor = models.CharField(max_length=100)
     item_Size_Quantity = models.ForeignKey(sizeCounts, on_delete=models.CASCADE)
     
