@@ -20,7 +20,8 @@ class sizeCounts (models.Model):
         return self.gallon_Count
 
 class itemFlavor (models.Model):
-    item_Flavor = models.CharField(max_length=100)
+    item_Flavor_Choices = [('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')]
+    item_Flavor = models.CharField(max_length=100, choices = item_Flavor_Choices)
     item_Size_Quantity = models.ForeignKey(sizeCounts, on_delete=models.CASCADE)
     
     def __str__(self):
