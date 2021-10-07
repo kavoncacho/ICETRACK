@@ -8,9 +8,16 @@ class sizeCounts (models.Model):
     gallon_Count = models.IntegerField(default=30)
     #size_Choice = models.CharField(max_length=100)
 
-    def __int__(self):
-        return self.sizeCounts
-        #return self.size_Choice
+    def hpQuant (self):
+        return self.half_Pint_Count
+    def oqQuant (self):
+        return self.one_Quart_Count
+    def pQuant (self):
+        return self.pint_Count
+    def hgQuant (self):
+        return self.half_Gallon_Count
+    def gQuant (self):
+        return self.gallon_Count
 
 class itemFlavor (models.Model):
     item_Flavor = models.CharField(max_length=100)
