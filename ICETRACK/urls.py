@@ -24,3 +24,7 @@ urlpatterns = [
     path('ticketmanage/', include('ticketmanage.urls')),
     path('admin/', admin.site.urls),
 ]
+
+admin.site.site_title = "ICETRACK Administrator"
+admin.site.site_header = "ICETRACK Admin Portal"
+admin.site.index_title = "Welcome to the ICETRACK Admin Portal"
