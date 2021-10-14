@@ -1,12 +1,12 @@
 from django.db import models
-from inventory.models import sizeCounts
+from inventory.models import item, sizeCounts
 
 class orderInfo (models.Model):
     class Meta:
         verbose_name = "Order Information"
         verbose_name_plural = "Order Information"
     
-    order_Item_Flavor = models.ForeignKey('inventory.itemFlavor', on_delete=models.CASCADE)
+    order_Item_Flavor = models.ForeignKey('inventory.item', on_delete=models.CASCADE)
     order_Size_Quantity = models.ForeignKey('inventory.sizeCounts', on_delete=models.CASCADE, default = 0)
     
     def __str__(self):
@@ -22,7 +22,6 @@ class customerInfo (models.Model):
     billing_address = models.CharField(max_length=60)
     customer_status_choices = [('PREFFERED','preferred'),('OKAY', 'okay'),('SHAKY', 'shaky')]
     customer_status = models.CharField(max_length=30, choices = customer_status_choices, default="PREFERRED")
-    order = models.ForeignKey(orderInfo, on_delete=models.CASCADE, default=2)
 
     def __str__(self):
         return self.customer_name
