@@ -5,6 +5,8 @@ class sizeCounts (models.Model):
         verbose_name = "Size Count"
         verbose_name_plural = "Size Counts"
 
+    item_Flavor_Choices = [('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')]
+    item_Flavor = models.CharField(max_length=100, choices = item_Flavor_Choices, default='chocolate')
     half_Pint_Count = models.IntegerField(default=30)
     one_Quart_Count = models.IntegerField(default=30)
     pint_Count = models.IntegerField(default=30)
@@ -18,8 +20,8 @@ class sizeCounts (models.Model):
 
 class item (models.Model):
     class Meta:
-        verbose_name = "Item Flavor"
-        verbose_name_plural = "Item Flavors"
+        verbose_name = "Item"
+        verbose_name_plural = "Items"
 
     item_Flavor_Choices = [('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')]
     item_Flavor = models.CharField(max_length=100, choices = item_Flavor_Choices)
