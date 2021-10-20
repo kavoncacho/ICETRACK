@@ -4,7 +4,9 @@ class sizeCounts (models.Model):
     class Meta:
         verbose_name = "Size Count"
         verbose_name_plural = "Size Counts"
-    
+
+    item_Flavor_Choices = [('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')]
+    item_Flavor = models.CharField(max_length=100, choices = item_Flavor_Choices, default='chocolate')
     half_Pint_Count = models.IntegerField(default=30)
     one_Quart_Count = models.IntegerField(default=30)
     pint_Count = models.IntegerField(default=30)
@@ -15,14 +17,15 @@ class sizeCounts (models.Model):
         return 'Half Pint: %s, Quart: %s, Pint: %s, Half Gallon: %s, Gallon: %s' % (self.half_Pint_Count, self.one_Quart_Count, 
         self.pint_Count, self.half_Gallon_Count, self.gallon_Count)
 
-class itemFlavor (models.Model):
+
+class item (models.Model):
     class Meta:
-        verbose_name = "Item Flavor"
-        verbose_name_plural = "Item Flavors"
-    
+        verbose_name = "Item"
+        verbose_name_plural = "Items"
+
     item_Flavor_Choices = [('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')]
     item_Flavor = models.CharField(max_length=100, choices = item_Flavor_Choices)
-    item_Size_Quantity = models.ForeignKey(sizeCounts, on_delete=models.CASCADE)
+    size_Counts = models.ForeignKey(sizeCounts, on_delete=models.CASCADE, default = None)
     
     def __str__(self):
         return self.item_Flavor
@@ -33,4 +36,3 @@ class receipts (models.Model):
 #Keeps track of who makes changes to the database
 class lastChangeMade (models.Model):
     last_Change_Made = models.CharField(max_length = 100)
-
