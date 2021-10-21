@@ -1,1 +1,38 @@
-<h1>About us</h1>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+    {% block title%} <title> About Us </title> {% endblock %}
+    <h1 class = "header"> Our Journey! </h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+</head>
+
+<body>
+
+    <p> ICE TRACK, formally known as Tom and Jerry's Ice Cream Code, is a software created to assist Tom and Adam's Ice Cream Company in selling
+    their famous ice cream. The software aims to be able take your orders of their popular ice cream flavors and ship your orders out in a timely manner
+    so that you can the best ice cream! Serving the San Diego community for over 500 years, we want to continue serving the best community in California.
+    With a wide variety of flavors to choose from, ranging from Strawberry to Chocolate, to our classic Vanilla, you'll never run out of the everexpanding
+    flavors to choose from! If you have any questions, feel free to go to our trouble shooting system to submit a ticket and we'll get back to you right away!
+    </p>
+
+    <div class=flex-container>
+        <div class="content-container">
+            <img class = "homeimg" src="https://www.cuisinevault.com/wp-content/uploads/2020/04/Chocolate-ice-cream.jpg" alt="Chocolate" style="width:100%"></img>
+        </div>
+        <div class="content-container">
+            <img class = "homeimg" src="https://beamingbaker.com/wp-content/uploads/2020/06/IGT1-Best-Strawberry-Vegan-Ice-Cream-Dairy-Free-1.jpg" alt="Vanilla" style="width:100%"></img>
+        </div>
+        <div class="content-container">
+            <img class = "homeimg" src="https://lilluna.com/wp-content/uploads/2020/04/vanilla-ice-cream-resize-9.jpg" alt="Strawberry" style="width:100%"></img>
+        </div>
+      </div>
+
+</body>
+
+
