@@ -7,14 +7,15 @@ class customerInfo (models.Model):
         verbose_name = "Customer Information"
         verbose_name_plural = "Customer Information"
 
-    customer_name = models.CharField(max_length=30)
+    customer_first_name = models.CharField(blank=True, max_length=30)
+    customer_last_name = models.CharField(blank=True, max_length=30)
     shipping_address = models.CharField(max_length=60)
     billing_address = models.CharField(max_length=60)
     customer_status_choices = [('PREFFERED','preferred'),('OKAY', 'okay'),('SHAKY', 'shaky')]
     customer_status = models.CharField(max_length=30, choices = customer_status_choices, default="PREFERRED")
 
     def __str__(self):
-        return self.customer_name
+        return '%s %s' % (self.customer_first_name, self.customer_last_name)
 
 class orderInfo (models.Model):
     class Meta:
@@ -50,5 +51,5 @@ class invoice (models.Model):
     total_Cost = models.IntegerField(default=0)
 
     def __str__(self):
-        return '%s\'s Invoice' % (self.customer.customer_name)
+        return '%s %s\'s Invoice' % (self.customer.customer_first_name, self.customer.customer_last_name)
     
