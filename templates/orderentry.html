@@ -12,50 +12,30 @@
 
     <body>
         <p>
-            <!--Basic Customer Information--> 
+             <!--Basic Customer Information--> 
 
             <form method = "post">
+
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Submit">
+
+                <label for="firstName">First name:</label><br>
+                <input type="text" id="firstName" name="firstName"><br>
+
+                <label for="lastName">Last name:</label><br>
+                <input type="text" id="lastName" name="lastName"><br>
+
+                <label for="shipAddr">Shipping Address: </label><br>
+                <input type="text" id="shipAddr" name="shipAddr"><br>
+
+                <label for="billAddr">Billing Address: </label><br>
+                <input type="text" id="billAddr" name="billAddr"><br>
+
+                <button type = "submit" Submit the order! </button> 
             </form>
-            <label for="fullName">First and Last name:</label><br>
-            <input type="text" id="fullName" name="fullName"><br>
-
-            <label for="shipAddr">Shipping Address: </label><br>
-            <input type="text" id="shipAddr" name="shipAddr"><br>
-
-            <label for="billAddr">Billing Address: </label><br>
-            <input type="text" id="billAddr" name="billAddr"><br>
 
         </p>
-
-        <br><br><br>
-
-        <p>
-            <!--Item Order Information-->
-            <label for="itemFlavor"> Choose your item flavor:</label><br>
-
-            <select name="itemFlavor" id = "itemFlavor">
-
-            <option value="Vanilla">Vanilla</option>
-            <option value="Chocolate">Chocolate</option>
-            <option value="Cookies and Cream">Cookies and Cream</option>
-            <option value="Strawberry">Strawberry</option> 
-        </select> <br>
-
-            <label for="itemSize"> Choose the size:</label><br>
-            <input type="text" id="itemSize" name="itemSize"><br>
-
-            <label for="itemQuantity"> Choose the quantity:</label><br>
-            <input type="text" id="itemQuantity" name="itemQuantity"><br>
-
-            <label for="itemCost"> Total Cost: _________ </label><br>
-            <!--<input type="text" id="itemCost" name="itemCost"><br> -->
-
-            <label for="itemShipDate"> Estimated Shipping Date: ___________ </label><br>
-            <!--<input type="text" id="itemShipDate" name="itemShipDate"><br> -->
-
+         
     </body>
 
 

@@ -1,20 +1,38 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .forms import customer_Information
 from django.views.generic import TemplateView
+from .forms import customer_Information
 
 class OrderEntryView(TemplateView):
-    template_name = 'orderentry/templates/orderentry.html'
+    template_name = 'orderentry.html'
 
     def get(self, request):
         form = customer_Information()
+        return render(request, self.template_name, {"forms": form})
 
-        return render(request, 'self.template_name', {'form': form} )
- 
-#def get_customer_info(request):
+    def post(self, request):
+        form = customer_Information(request.POST)
+        firstName = None
+        lastName = None
+        shipAddr = None
+        billAddr = None
+        if form.is_valid():
+        
+            firstName.save()
+            lastName.save()
+            shipAddr.save()
+            billAddr.save()
+            
+            firstName = form.cleaned_data["customerFirstName"]
+            lastName = form.cleaned_data["customerLastName"]
+            shipAddr = form.cleaned_data["ShippingAddress"]
+            billAddr = form.cleaned_data["BillingAddress"]
+            form = customer_Information()
+            
+            return redirect('orderentry:orderentry')
 
-    #if request.method == 'POST':
-     #   form = customer_Information(request.POST)
-      #  if form.is_valid():
+        args = {"forms": form, "firstName": firstName, "lastName": lastName, "shipAddr": shipAddr, "billAddr": billAddr}
+        
+        return render(request, self.template_name, args)
 
-    #return render(request, 'orderentry.html')
+
