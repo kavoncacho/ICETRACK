@@ -13,30 +13,11 @@
     <body>
         <p>
              <!--Basic Customer Information--> 
-
             <form method = "post">
-
                 {% csrf_token %}
                 {{ form.as_p }}
-
-                <label for="firstName">First name:</label><br>
-                <input type="text" id="firstName" name="firstName"><br>
-
-                <label for="lastName">Last name:</label><br>
-                <input type="text" id="lastName" name="lastName"><br>
-
-                <label for="shipAddr">Shipping Address: </label><br>
-                <input type="text" id="shipAddr" name="shipAddr"><br>
-
-                <label for="billAddr">Billing Address: </label><br>
-                <input type="text" id="billAddr" name="billAddr"><br>
-
-                <button type = "submit" Submit the order! </button> 
+                <button type = "submit">Place your order!</button> 
             </form>
-
-        </p>
-         
+        </p> 
     </body>
-
-
 </head>

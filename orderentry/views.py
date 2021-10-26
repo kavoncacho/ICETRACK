@@ -1,38 +1,22 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.views.generic import TemplateView
-from .forms import customer_Information
+import orderentry
+from orderentry.forms import customerForm
 
-class OrderEntryView(TemplateView):
-    template_name = 'orderentry.html'
-
-    def get(self, request):
-        form = customer_Information()
-        return render(request, self.template_name, {"forms": form})
-
-    def post(self, request):
-        form = customer_Information(request.POST)
-        firstName = None
-        lastName = None
-        shipAddr = None
-        billAddr = None
+def getCustomerInfo(request):
+    form = customerForm(request.POST)
+    if request.method == 'POST':
         if form.is_valid():
-        
-            firstName.save()
-            lastName.save()
-            shipAddr.save()
-            billAddr.save()
-            
-            firstName = form.cleaned_data["customerFirstName"]
-            lastName = form.cleaned_data["customerLastName"]
-            shipAddr = form.cleaned_data["ShippingAddress"]
-            billAddr = form.cleaned_data["BillingAddress"]
-            form = customer_Information()
-            
-            return redirect('orderentry:orderentry')
+            form.save()
+            orderentry.forms.customer_first_name = form.cleaned_data['customer_first_name']
+            orderentry.forms.customer_last_name = form.cleaned_data['customer_last_name']
+            orderentry.forms.shipping_address = form.cleaned_data['shipping_address']
+            orderentry.forms.billing_address = form.cleaned_data['billing_address']
+            return redirect('/orderentry')
 
-        args = {"forms": form, "firstName": firstName, "lastName": lastName, "shipAddr": shipAddr, "billAddr": billAddr}
-        
-        return render(request, self.template_name, args)
-
+    else:
+        form=customerForm()
+    
+    return render(request, 'orderentry.html', {'form' : form})
 
