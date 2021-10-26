@@ -7,8 +7,9 @@ class customer_Information(forms.ModelForm):
     customerLastName = forms.CharField(max_length=30)
     ShippingAddress = forms.CharField(max_length=60)
     BillingAddress = forms.CharField(max_length=60)
+    
 
     class Meta:
         model = customerInfo
-        fields = ('customerFirstName','customerLastName','ShippingAddress', 'BillingAddress',)
+        fields = ('customerFirstName','customerLastName','ShippingAddress', 'BillingAddress')
     

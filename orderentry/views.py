@@ -17,12 +17,9 @@ class OrderEntryView(TemplateView):
         shipAddr = None
         billAddr = None
         if form.is_valid():
-        
-            firstName.save()
-            lastName.save()
-            shipAddr.save()
-            billAddr.save()
             
+            form.save()
+
             firstName = form.cleaned_data["customerFirstName"]
             lastName = form.cleaned_data["customerLastName"]
             shipAddr = form.cleaned_data["ShippingAddress"]
@@ -30,9 +27,12 @@ class OrderEntryView(TemplateView):
             form = customer_Information()
             
             return redirect('orderentry:orderentry')
+        else:
+            print(form.errors)
 
         args = {"forms": form, "firstName": firstName, "lastName": lastName, "shipAddr": shipAddr, "billAddr": billAddr}
         
         return render(request, self.template_name, args)
+
 
 
