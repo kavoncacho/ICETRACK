@@ -41,9 +41,10 @@ html {
 }
 
 #bottommessage {
-    position: fixed;
+    position: absolute;
     text-align: center;
     bottom: 0;
     color: rgb(164, 164, 164);
     font-size: small;
 }
+
