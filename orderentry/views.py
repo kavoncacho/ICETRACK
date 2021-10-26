@@ -1,8 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import customerInfo, orderInfo, invoice
-from inventory.models import sizeCounts, item
+from .forms import customer_Information
+from django.views.generic import TemplateView
 
-def index(request):
+class OrderEntryView(TemplateView):
+    template_name = 'orderentry/templates/orderentry.html'
 
-    return render(request, 'orderentry.html')
+    def get(self, request):
+        form = customer_Information()
+
+        return render(request, 'self.template_name', {'form': form} )
+ 
+#def get_customer_info(request):
+
+    #if request.method == 'POST':
+     #   form = customer_Information(request.POST)
+      #  if form.is_valid():
+
+    #return render(request, 'orderentry.html')

@@ -30,7 +30,7 @@ class orderInfo (models.Model):
     gallon_Count = models.IntegerField(default=0)
     cost = models.IntegerField(default=0)
     customer = models.ForeignKey(customerInfo, on_delete=models.CASCADE, default = 0)
-    
+
     def __str__(self):
         return '%s, Half Pint: %s, Quart: %s, Pint: %s, Half Gallon: %s, Gallon: %s, $%s' % (self.order_Item_Flavor, 
         self.half_Pint_Count, self.one_Quart_Count, self.pint_Count, self.half_Gallon_Count, self.gallon_Count, 
