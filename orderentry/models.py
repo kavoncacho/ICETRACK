@@ -7,8 +7,8 @@ class customerInfo (models.Model):
         verbose_name = "Customer Information"
         verbose_name_plural = "Customer Information"
 
-    customer_first_name = models.CharField(blank=True, max_length=30)
-    customer_last_name = models.CharField(blank=True, max_length=30)
+    customer_first_name = models.CharField(max_length=30)
+    customer_last_name = models.CharField(max_length=30)
     shipping_address = models.CharField(max_length=60)
     billing_address = models.CharField(max_length=60)
     customer_status_choices = [('PREFFERED','preferred'),('OKAY', 'okay'),('SHAKY', 'shaky')]
