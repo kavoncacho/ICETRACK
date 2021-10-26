@@ -5,11 +5,62 @@
 <head>
 
     {% block title%} <title> About Us </title> {% endblock %}
+    <p id="adminlink"><a href="{% url 'admin:index' %}">Admin Portal</a></p>
     <h1 class = "header"> Our Journey! </h1>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    
+    <style>
+        ul {
+            list-style-type: none;
+            display: inline-block;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgb(111, 145, 156);
+        }
+        
+        li {
+            float: left;
+            display:inline;
+            border-right:1px solid rgb(79, 100, 107);
+        }
 
+        li:last-child {
+            border-right: none;
+        }
+        
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        
+        li a:hover {
+            background-color: rgb(96, 35, 29);
+        }
+
+        li a:hover:not(.active) {
+            background-color: rgb(79, 100, 107);
+        }
+
+        .active {
+            background-color: rgb(127, 45, 37);
+        }
+    </style>
+
+    <ul class="nav">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a class="active" href="{% url 'aboutus' %}">About us!</a></li>
+        <li><a href="{% url 'orderentry' %}">Order here!</a></li>
+        <li><a href="{% url 'shipmenttracking' %}">Track your shipment</a></li>
+        <li><a href="{% url 'ticketmanage' %}">Having trouble? Click here to get help!</a></li>
+    </ul>
+    
 </head>
 
 <body>
