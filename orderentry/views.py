@@ -13,10 +13,12 @@ def getCustomerInfo(request):
             orderentry.forms.customer_last_name = form.cleaned_data['customer_last_name']
             orderentry.forms.shipping_address = form.cleaned_data['shipping_address']
             orderentry.forms.billing_address = form.cleaned_data['billing_address']
-            return redirect('/orderentry')
+            return redirect('thankyou')
 
     else:
         form=customerForm()
     
     return render(request, 'orderentry.html', {'form' : form})
 
+def thankYou(request):
+    return render(request, 'thankyou.html')
