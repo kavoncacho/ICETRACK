@@ -10,6 +10,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{% static 'js/index.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+    <div class="wrapper">
+        <ul class="nav">
+            <li><a class="active" href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'aboutus' %}">About us!</a></li>
+            <li><a  href="{% url 'orderentry' %}">Order here!</a></li>
+            <li><a href="{% url 'shipmenttracking' %}">Track your shipment</a></li>
+            <li><a href="{% url 'ticketmanage' %}">Having trouble? Click here to get help!</a></li>
+        </ul>
+    </div>
 </head>
 
 <body>
@@ -24,12 +34,6 @@
             <img class = "homeimg" src="https://www.yourhomebasedmom.com/wp-content/uploads/2019/07/fresh-strawberry-ice-cream.jpg" alt="Strawberry" style="width:100%"></img>
         </div>
       </div>
-    <nav class ="menu">
-        <p><a href="{% url 'aboutus' %}">About ICETRACK</a></p>
-        <p><a href="{% url 'orderentry' %}">Order Here!</a></p>
-        <p><a href="{% url 'shipmenttracking' %}">Track your shipment</a></p>
-        <p><a href="{% url 'ticketmanage' %}">Having trouble? Click here to get help!</a></p>
-    </nav>
 </body>
 
 <footer id="footer">
