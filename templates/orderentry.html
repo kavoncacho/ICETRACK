@@ -30,6 +30,7 @@
         <form method = "post">
             {% csrf_token %}
             {{ form.as_p }}
+            {{ newOrder.as_p }}
             <button type = "submit">Place your order!</button> 
         </form>
     </p> 
