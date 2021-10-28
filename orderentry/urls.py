@@ -4,5 +4,4 @@ urlpatterns = [
     path('', views.getCustomerInfo, name = 'orderentry'),
     path('', views.getCustomerOrder, name = 'orderentry'),
     path(r'thankyou/', views.thankYou, name = 'thankyou'),
-    
 ]
