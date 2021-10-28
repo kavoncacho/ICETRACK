@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block title%} <title> Ticket Sent Page </title> {% endblock %}
+    <p id="adminlink"><a href="{% url 'admin:index' %}">Admin Portal</a></p>
+    <h1 class = "header"> We're Sorry </h1>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+
+    <div class="wrapper">
+        <ul class="nav">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'aboutus' %}">About us!</a></li>
+            <li><a href="{% url 'orderentry' %}">Order here!</a></li>
+            <li><a href="{% url 'shipmenttracking' %}">Track your shipment</a></li>
+            <li><a href="{% url 'ticketmanage' %}">Having trouble? Click here to get help!</a></li>
+        </ul>
+    </div>
+
+</head>
+
+<body>
+    <img id="sorrygif" src=https://media2.giphy.com/avatars/MyPostcard/1ggCV9yJ9ml9.gif>
+    <p id="sorrytext">We're sorry you had an issue with our services.<br> An ICETRACK admin will get to your ticket shortly!</p>
+</body>
