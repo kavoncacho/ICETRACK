@@ -120,3 +120,12 @@ html {
     text-align: center;
 }
 
+.container {
+    width: 120;
+    height: 120;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+}
