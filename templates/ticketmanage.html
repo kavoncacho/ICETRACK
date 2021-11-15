@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{% static 'js/index.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 
     <div class="wrapper">
         <ul class="nav">
@@ -29,8 +30,36 @@
          <!--Basic Customer Information--> 
         <form method = "post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type = "submit">Submit your ticket</button> 
+            <!-- {{ form.as_p }} -->
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.user_name.errors }}
+                <label for="{{ form.user_name.id_for_label }}">Full Name:</label>
+                {{ form.user_name }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.user_email.errors }}
+                <label for="{{ form.user_email.id_for_label }}">Email:</label>
+                {{ form.user_email }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.ticket_creation_date.errors }}
+                <label for="{{ form.ticket_creation_date.id_for_label }}">Date:</label>
+                {{ form.ticket_creation_date }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.subject.errors }}
+                <label for="{{ form.subject.id_for_label }}">Subject:</label>
+                {{ form.subject }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.description.errors }}
+                <label for="{{ form.description.id_for_label }}"></label>
+                {{ form.description }}
+            </div>
+            <div class="fieldWrapper">
+                <button type = "submit" class="button">Submit your ticket</button> 
+            </div>
         </form>
     </p> 
 </body>

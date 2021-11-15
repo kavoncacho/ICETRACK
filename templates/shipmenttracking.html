@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{% static 'js/index.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 
     <div class="wrapper">
         <ul class="nav">
@@ -29,13 +30,19 @@
          <!--Basic Customer Information--> 
         <form method = "post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type = "submit">Submit your Tracking Code</button> 
+            <div class="fieldWrapper">
+                {{ form.trackingCode.errors }}
+                <label for="{{ form.trackingCode.id_for_label }}">Tracking Code:</label>
+                {{ form.trackingCode }}
+            </div>
+            <div class="fieldWrapper">
+                <button type = "submit">Submit your Tracking Code</button> 
+            </div>
         </form>
     </p> 
 
     <p>
-        <iframe 
+        <iframe style="justify-content: center;" 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.559433903226!2d-117.07359078454002!3d32.77742278097177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d95686a6a04a21%3A0xc39f2ac6bf82f916!2sSan%20Diego%20State%20University!5e0!3m2!1sen!2sus!4v1636946777682!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy">
         </iframe>
     </p>
