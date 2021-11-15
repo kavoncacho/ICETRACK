@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{% static 'js/index.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}">
 
     <div class="wrapper">
         <ul class="nav">
@@ -26,12 +27,33 @@
 
 <body>
     <p>
-         <!--Basic Customer Information--> 
+        <!--Basic Customer Information--> 
         <form method = "post">
             {% csrf_token %}
-            {{ form.as_p }}
-            {{ newOrder.as_p }}
-            <button type = "submit">Place your order!</button> 
+            <!-- {{ newOrder.as_p }} -->
+            <div class="fieldWrapper">
+                {{ form.customer_first_name.errors }}
+                <label for="{{ form.customer_first_name.id_for_label }}">First Name:</label>
+                {{ form.customer_first_name }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.customer_last_name.errors }}
+                <label for="{{ form.customer_last_name.id_for_label }}">Last Name:</label>
+                {{ form.customer_last_name }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.shipping_address.errors }}
+                <label for="{{ form.shipping_address.id_for_label }}">Shipping Address:</label>
+                {{ form.shipping_address }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.billing_address.errors }}
+                <label for="{{ form.billing_address.id_for_label }}">Billing Address:</label>
+                {{ form.billing_address }}
+            </div>
+            <div class="fieldWrapper">
+                <button type = "submit">Place your order!</button> 
+            </div>
         </form>
     </p> 
 </body>
