@@ -13,7 +13,7 @@ class customerForm(forms.ModelForm):
         fields = ('customer_first_name','customer_last_name','shipping_address', 'billing_address',)
         
 class customerInformation(forms.ModelForm):
-    #order_Item_Flavor = forms.MultipleChoiceField(choices=['vanilla','chocolate','strawberry','cookiesncream'])
+    order_Item_Flavor = forms.ChoiceField(choices=[('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')])
     half_Pint_Count = forms.IntegerField()
     one_Quart_Count = forms.IntegerField()
     pint_Count = forms.IntegerField()

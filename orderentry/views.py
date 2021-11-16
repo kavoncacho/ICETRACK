@@ -26,7 +26,7 @@ def getCustomerOrder(request):
     if request.method == 'POST':
         if newOrder.is_valid():
             newOrder.save()
-            #orderentry.forms.order_Item_Flavor = newOrder.cleaned_data['order_Item_Flavor']
+            orderentry.forms.order_Item_Flavor = newOrder.cleaned_data['order_Item_Flavor']
             orderentry.forms.half_Pint_Count = newOrder.cleaned_data['half_Pint_Count']
             orderentry.forms.one_Quart_Count = newOrder.cleaned_data['one_Quart_Count']
             orderentry.forms.pint_Count = newOrder.cleaned_data['pint_Count']
