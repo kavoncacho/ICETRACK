@@ -30,7 +30,7 @@
         <!--Basic Customer Information--> 
         <form method = "post">
             {% csrf_token %}
-            <!-- {{ newOrder.as_p }} -->
+            
             <div class="fieldWrapper">
                 {{ form.customer_first_name.errors }}
                 <label for="{{ form.customer_first_name.id_for_label }}">First Name:</label>
@@ -50,6 +50,36 @@
                 {{ form.billing_address.errors }}
                 <label for="{{ form.billing_address.id_for_label }}">Billing Address:</label>
                 {{ form.billing_address }}
+            </div>
+            <div class="fieldWrapper">
+                {{ newOrder.order_Item_Flavor.errors }}
+                <label for="{{ newOrder.order_Item_Flavor.id_for_label }}">Flavor:</label>
+                {{ newOrder.order_Item_Flavor }}
+            </div>
+            <div class="fieldWrapper">
+                {{ newOrder.half_Pint_Count.errors }}
+                <label for="{{ newOrder.half_Pint_Count.id_for_label }}">Half Pint Count:</label>
+                {{ newOrder.half_Pint_Count }}
+            </div>
+            <div class="fieldWrapper">
+                {{ newOrder.one_Quart_Count.errors }}
+                <label for="{{ newOrder.one_Quart_Count.id_for_label }}">Quart Count:</label>
+                {{ newOrder.one_Quart_Count }}
+            </div>
+            <div class="fieldWrapper">
+                {{ newOrder.pint_Count.errors }}
+                <label for="{{ newOrder.pint_Count.id_for_label }}">Pint Count:</label>
+                {{ newOrder.pint_Count }}
+            </div>
+            <div class="fieldWrapper">
+                {{ newOrder.half_Gallon_Count.errors }}
+                <label for="{{ newOrder.half_Gallon_Count.id_for_label }}">Half Gallon Count:</label>
+                {{ newOrder.half_Gallon_Count }}
+            </div>
+            <div class="fieldWrapper">
+                {{ newOrder.gallon_Count.errors }}
+                <label for="{{ newOrder.gallon_Count.id_for_label }}">Gallon Count:</label>
+                {{ newOrder.gallon_Count }}
             </div>
             <div class="fieldWrapper">
                 <button type = "submit">Place your order!</button> 
