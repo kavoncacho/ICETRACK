@@ -32,34 +32,34 @@
             {% csrf_token %}
         
             <div class="fieldWrapper">
-                {{ newOrder.order_Item_Flavor.errors }}
-                <label for="{{ newOrder.order_Item_Flavor.id_for_label }}">Flavor:</label>
-                {{ newOrder.order_Item_Flavor }}
+                {{ form.order_Item_Flavor.errors }}
+                <label for="{{ form.order_Item_Flavor.id_for_label }}">Flavor:</label>
+                {{ form.order_Item_Flavor }}
             </div>
             <div class="fieldWrapper">
-                {{ newOrder.half_Pint_Count.errors }}
-                <label for="{{ newOrder.half_Pint_Count.id_for_label }}">Half Pint Count:</label>
-                {{ newOrder.half_Pint_Count }}
+                {{ form.half_Pint_Count.errors }}
+                <label for="{{ form.half_Pint_Count.id_for_label }}">Half Pint Count:</label>
+                {{ form.half_Pint_Count }}
             </div>
             <div class="fieldWrapper">
-                {{ newOrder.one_Quart_Count.errors }}
-                <label for="{{ newOrder.one_Quart_Count.id_for_label }}">Quart Count:</label>
-                {{ newOrder.one_Quart_Count }}
+                {{ form.one_Quart_Count.errors }}
+                <label for="{{ form.one_Quart_Count.id_for_label }}">Quart Count:</label>
+                {{ form.one_Quart_Count }}
             </div>
             <div class="fieldWrapper">
-                {{ newOrder.pint_Count.errors }}
-                <label for="{{ newOrder.pint_Count.id_for_label }}">Pint Count:</label>
-                {{ newOrder.pint_Count }}
+                {{ form.pint_Count.errors }}
+                <label for="{{ form.pint_Count.id_for_label }}">Pint Count:</label>
+                {{ form.pint_Count }}
             </div>
             <div class="fieldWrapper">
-                {{ newOrder.half_Gallon_Count.errors }}
-                <label for="{{ newOrder.half_Gallon_Count.id_for_label }}">Half Gallon Count:</label>
-                {{ newOrder.half_Gallon_Count }}
+                {{ form.half_Gallon_Count.errors }}
+                <label for="{{ form.half_Gallon_Count.id_for_label }}">Half Gallon Count:</label>
+                {{ form.half_Gallon_Count }}
             </div>
             <div class="fieldWrapper">
-                {{ newOrder.gallon_Count.errors }}
-                <label for="{{ newOrder.gallon_Count.id_for_label }}">Gallon Count:</label>
-                {{ newOrder.gallon_Count }}
+                {{ form.gallon_Count.errors }}
+                <label for="{{ form.gallon_Count.id_for_label }}">Gallon Count:</label>
+                {{ form.gallon_Count }}
             </div>
             <div class="fieldWrapper">
                 <button type = "submit">Continue!</button> 

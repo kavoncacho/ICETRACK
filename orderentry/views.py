@@ -5,21 +5,21 @@ import orderentry
 from orderentry.forms import customerInfo, customerOrder
 
 def getCustomerOrder(request):
-    newOrder = customerOrder(request.POST)
+    form = customerOrder(request.POST)
     if request.method == 'POST':
-        if newOrder.is_valid():
-            newOrder.save()
-            orderentry.forms.order_Item_Flavor = newOrder.cleaned_data['order_Item_Flavor']
-            orderentry.forms.half_Pint_Count = newOrder.cleaned_data['half_Pint_Count']
-            orderentry.forms.one_Quart_Count = newOrder.cleaned_data['one_Quart_Count']
-            orderentry.forms.pint_Count = newOrder.cleaned_data['pint_Count']
-            orderentry.forms.half_Gallon_Count = newOrder.cleaned_data['half_Gallon_Count']
-            orderentry.forms.gallon_Count = newOrder.cleaned_data['gallon_Count']
-            return redirect('customerinfoentry')
+        if form.is_valid():
+            form.save()
+            orderentry.forms.order_Item_Flavor = form.cleaned_data['order_Item_Flavor']
+            orderentry.forms.half_Pint_Count = form.cleaned_data['half_Pint_Count']
+            orderentry.forms.one_Quart_Count = form.cleaned_data['one_Quart_Count']
+            orderentry.forms.pint_Count = form.cleaned_data['pint_Count']
+            orderentry.forms.half_Gallon_Count = form.cleaned_data['half_Gallon_Count']
+            orderentry.forms.gallon_Count = form.cleaned_data['gallon_Count']
+            return redirect('continueOrder')
     else:
-        newOrder=customerOrder()
+        form=customerOrder()
     
-    return render(request, 'orderentry.html', {'newOrder' : newOrder})
+    return render(request, 'orderentry.html', {'form' : form})
 
 def getCustomerInfo(request):
     form = customerInfo(request.POST)
