@@ -2,10 +2,27 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import orderentry
-from orderentry.forms import customerForm, customerInformation
+from orderentry.forms import customerInfo, customerOrder
+
+def getCustomerOrder(request):
+    form = customerOrder(request.POST)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            orderentry.forms.order_Item_Flavor = form.cleaned_data['order_Item_Flavor']
+            orderentry.forms.half_Pint_Count = form.cleaned_data['half_Pint_Count']
+            orderentry.forms.one_Quart_Count = form.cleaned_data['one_Quart_Count']
+            orderentry.forms.pint_Count = form.cleaned_data['pint_Count']
+            orderentry.forms.half_Gallon_Count = form.cleaned_data['half_Gallon_Count']
+            orderentry.forms.gallon_Count = form.cleaned_data['gallon_Count']
+            return redirect('continueOrder')
+    else:
+        form=customerOrder()
+    
+    return render(request, 'orderentry.html', {'form' : form})
 
 def getCustomerInfo(request):
-    form = customerForm(request.POST)
+    form = customerInfo(request.POST)
     if request.method == 'POST':
         if form.is_valid():
             form.save()
@@ -16,28 +33,12 @@ def getCustomerInfo(request):
             return redirect('thankyou')
 
     else:
-        newOrder=customerInformation()
-        form=customerForm()
+        form=customerInfo()
     
-    return render(request, 'orderentry.html', {'form' : form, "newOrder": newOrder})
-
-def getCustomerOrder(request):
-    newOrder = customerInformation(request.POST)
-    if request.method == 'POST':
-        if newOrder.is_valid():
-            newOrder.save()
-            orderentry.forms.order_Item_Flavor = newOrder.cleaned_data['order_Item_Flavor']
-            orderentry.forms.half_Pint_Count = newOrder.cleaned_data['half_Pint_Count']
-            orderentry.forms.one_Quart_Count = newOrder.cleaned_data['one_Quart_Count']
-            orderentry.forms.pint_Count = newOrder.cleaned_data['pint_Count']
-            orderentry.forms.half_Gallon_Count = newOrder.cleaned_data['half_Gallon_Count']
-            orderentry.forms.gallon_Count = newOrder.cleaned_data['gallon_Count']
-            orderentry.forms.cost = newOrder.cleaned_data['cost']
-            return redirect('thankyou')
-    else:
-        newOrder=customerInformation()
-    
-    return render(request, 'orderentry.html', {'newOrder' : newOrder})
+    return render(request, 'customerinfoentry.html', {'form' : form})
 
 def thankYou(request):
     return render(request, 'thankyou.html')
+
+def continueOrder(request):
+    return render(request, 'customerinfoentry.html')

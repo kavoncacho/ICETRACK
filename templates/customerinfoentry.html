@@ -27,42 +27,32 @@
 
 <body>
     <p>
-        <!--Customer Order Information--> 
+        <!--Basic Customer Information--> 
         <form method = "post">
             {% csrf_token %}
-        
+           
             <div class="fieldWrapper">
-                {{ form.order_Item_Flavor.errors }}
-                <label for="{{ form.order_Item_Flavor.id_for_label }}">Flavor:</label>
-                {{ form.order_Item_Flavor }}
+                {{ form.customer_first_name.errors }}
+                <label for="{{ form.customer_first_name.id_for_label }}">First Name:</label>
+                {{ form.customer_first_name }}
             </div>
             <div class="fieldWrapper">
-                {{ form.half_Pint_Count.errors }}
-                <label for="{{ form.half_Pint_Count.id_for_label }}">Half Pint Count:</label>
-                {{ form.half_Pint_Count }}
+                {{ form.customer_last_name.errors }}
+                <label for="{{ form.customer_last_name.id_for_label }}">Last Name:</label>
+                {{ form.customer_last_name }}
             </div>
             <div class="fieldWrapper">
-                {{ form.one_Quart_Count.errors }}
-                <label for="{{ form.one_Quart_Count.id_for_label }}">Quart Count:</label>
-                {{ form.one_Quart_Count }}
+                {{ form.shipping_address.errors }}
+                <label for="{{ form.shipping_address.id_for_label }}">Shipping Address:</label>
+                {{ form.shipping_address }}
             </div>
             <div class="fieldWrapper">
-                {{ form.pint_Count.errors }}
-                <label for="{{ form.pint_Count.id_for_label }}">Pint Count:</label>
-                {{ form.pint_Count }}
+                {{ form.billing_address.errors }}
+                <label for="{{ form.billing_address.id_for_label }}">Billing Address:</label>
+                {{ form.billing_address }}
             </div>
             <div class="fieldWrapper">
-                {{ form.half_Gallon_Count.errors }}
-                <label for="{{ form.half_Gallon_Count.id_for_label }}">Half Gallon Count:</label>
-                {{ form.half_Gallon_Count }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.gallon_Count.errors }}
-                <label for="{{ form.gallon_Count.id_for_label }}">Gallon Count:</label>
-                {{ form.gallon_Count }}
-            </div>
-            <div class="fieldWrapper">
-                <button type = "submit">Continue!</button> 
+                <button type = "submit">Place your order!</button> 
             </div>
         </form>
     </p> 
