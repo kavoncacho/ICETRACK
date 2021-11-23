@@ -1,9 +1,11 @@
 from django import forms
+from django.db.models.query import QuerySet
 from orderentry.models import customerInfo, orderInfo
+from inventory.models import flavor
 
 class customerOrder(forms.ModelForm):
     
-    order_Item_Flavor = forms.ChoiceField(choices=[('CHOCOLATE','chocolate'),('VANILLA', 'vanilla'),('COOKIESNCREME', 'cookiesncreme'), ('STRAWBERRY', 'strawberry')])
+    order_Item_Flavor = forms.ChoiceField(choices=flavor.flavor_Choices)
     half_Pint_Count = forms.IntegerField()
     one_Quart_Count = forms.IntegerField()
     pint_Count = forms.IntegerField()
@@ -12,7 +14,7 @@ class customerOrder(forms.ModelForm):
 
     class Meta:
         model = orderInfo
-        fields = ('half_Pint_Count', 'one_Quart_Count', 'pint_Count', 'half_Gallon_Count', 'gallon_Count',)
+        fields = ('order_Item_Flavor','half_Pint_Count', 'one_Quart_Count', 'pint_Count', 'half_Gallon_Count', 'gallon_Count',)
 
 class customerInfo(forms.ModelForm):
 

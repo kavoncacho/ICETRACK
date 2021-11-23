@@ -48,10 +48,10 @@ class item (models.Model):
 
     flavor = models.ForeignKey(flavor, on_delete=models.CASCADE, default = None)
     size_Counts = models.ForeignKey(sizeCounts, on_delete=models.CASCADE, default = None)
-
+    prices = models.ForeignKey(prices, on_delete=models.CASCADE, default = None)
     
     def __str__(self):
-        return self.flavor
+        return '%s' % (self.flavor)
 
 class receipts (models.Model):
     receipts = models.CharField(max_length = 150)
