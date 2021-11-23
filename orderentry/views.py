@@ -15,7 +15,7 @@ def getCustomerOrder(request):
             orderentry.forms.pint_Count = form.cleaned_data['pint_Count']
             orderentry.forms.half_Gallon_Count = form.cleaned_data['half_Gallon_Count']
             orderentry.forms.gallon_Count = form.cleaned_data['gallon_Count']
-            return redirect('continueOrder')
+            return redirect('continueorder')
     else:
         form=customerOrder()
     

@@ -22,7 +22,7 @@ class orderInfo (models.Model):
         verbose_name = "Order Information"
         verbose_name_plural = "Order Information"
     
-    order_Item_Flavor = models.ForeignKey('inventory.item', on_delete=models.CASCADE)
+    order_Item_Flavor = models.ForeignKey('inventory.flavor', on_delete=models.CASCADE)
     half_Pint_Count = models.IntegerField(default=0)
     one_Quart_Count = models.IntegerField(default=0)
     pint_Count = models.IntegerField(default=0)
